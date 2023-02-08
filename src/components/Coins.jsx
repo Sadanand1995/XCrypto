@@ -64,6 +64,7 @@ const Coins = () => {
           <HStack wrap={"wrap"} justifyContent={"center"}>
             {coins.map((e) => (
               <CoinCard
+                key={e.id}
                 id={e.id}
                 name={e.name}
                 img={e.image}
@@ -77,6 +78,7 @@ const Coins = () => {
             {btn.map((item, index) => {
               return (
                 <Button
+                  key={index}
                   bgColor={"blackAlpha.900"}
                   color="white"
                   alignSelf={"center"}
