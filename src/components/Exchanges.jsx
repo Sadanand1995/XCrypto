@@ -40,7 +40,7 @@ const Exchanges = () => {
         <Loader />
       ) : (
         <>
-          <HStack wrap={"wrap"}>
+          <HStack wrap={"wrap"} justifyContent={"center"}>
             {exchanges.map((e) => (
               <ExchangeCard
                 key={e.id}

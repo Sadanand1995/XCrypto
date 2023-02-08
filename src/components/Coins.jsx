@@ -20,7 +20,7 @@ const Coins = () => {
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("inr");
 
-  const btn = new Array(124).fill(1);
+  const btn = new Array(619).fill(1);
 
   const currencySymbol =
     currency === "inr" ? "₹" : currency === "eur" ? "€" : "$";
@@ -34,7 +34,7 @@ const Coins = () => {
     const fetchCoin = async () => {
       try {
         const { data } = await axios.get(
-          `${server}/coins/markets?vs_currency=${currency}&page=${page}`
+          `${server}/coins/markets?vs_currency=${currency}&page=${page}&per_page=20`
         );
         setCoins(data);
         setLoading(false);
@@ -61,7 +61,7 @@ const Coins = () => {
               <Radio value="usd">$ (USD)</Radio>
             </Stack>
           </RadioGroup>
-          <HStack wrap={"wrap"}>
+          <HStack wrap={"wrap"} justifyContent={"center"}>
             {coins.map((e) => (
               <CoinCard
                 id={e.id}
