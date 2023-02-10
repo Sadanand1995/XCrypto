@@ -31,10 +31,10 @@ const Coins = () => {
   };
 
   useEffect(() => {
-    const fetchCoin = async () => {
+    const fetchCoins = async () => {
       try {
         const { data } = await axios.get(
-          `${server}/coins/markets?vs_currency=${currency}&page=${page}&per_page=20`
+          `${server}/coins/markets?vs_currency=${currency}&page=${page}&per_page=60`
         );
         setCoins(data);
         setLoading(false);
@@ -43,7 +43,7 @@ const Coins = () => {
         setLoading(false);
       }
     };
-    fetchCoin();
+    fetchCoins();
   }, [currency, page]);
 
   if (error) return <ErrorComponents message={"Error while fetching data"} />;
@@ -61,7 +61,7 @@ const Coins = () => {
               <Radio value="usd">$ (USD)</Radio>
             </Stack>
           </RadioGroup>
-          <HStack wrap={"wrap"} justifyContent={"center"}>
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
             {coins.map((e) => (
               <CoinCard
                 key={e.id}

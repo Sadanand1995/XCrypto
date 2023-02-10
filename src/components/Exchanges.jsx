@@ -21,7 +21,6 @@ const Exchanges = () => {
     const fetchExchanges = async () => {
       try {
         const { data } = await axios.get(`${server}/exchanges`);
-        console.log(data);
         setExchanges(data);
         setLoading(false);
       } catch (error) {
@@ -40,7 +39,7 @@ const Exchanges = () => {
         <Loader />
       ) : (
         <>
-          <HStack wrap={"wrap"} justifyContent={"center"}>
+          <HStack wrap={"wrap"} justifyContent={"space-evenly"}>
             {exchanges.map((e) => (
               <ExchangeCard
                 key={e.id}
